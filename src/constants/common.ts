@@ -17,8 +17,3 @@ export const dataTypeLabels: { [K in TypeUtils.DataTypeStringKey]: TypeUtils.Dat
   map: '[object Map]',
   file: '[object File]',
 }
-
-export const EnumConfigEnable = {
-  open: 'Y',
-  close: 'N',
-}
