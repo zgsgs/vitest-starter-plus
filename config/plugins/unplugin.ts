@@ -3,19 +3,16 @@ import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import { FileSystemIconLoader } from 'unplugin-icons/loaders'
-import { getSrcPath } from '../utils'
+import SvgComponent from 'unplugin-svg-component/vite'
+import type { PluginOption } from 'vite'
+import { getSrcPath, getTypesPath } from '../utils'
 
 export default function unplugin(viteEnv: ImportMetaEnv) {
   const { VITE_ICON_PREFFIX, VITE_ICON_LOCAL_PREFFIX } = viteEnv
 
-  const srcPath = getSrcPath()
-  const localIconPath = `${srcPath}/assets/svg-icon`
-
+  const localIconPath = `${getSrcPath()}/assets/svg-icon`
   /** 本地svg图标集合名称 */
-  const collectionName = VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')
+  const preserveColorReg = new RegExp(`${VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')}`)
 
   return [
     VueMacros({
@@ -24,37 +21,42 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
         vueJsx: VueJsx(),
       },
     }),
-    Icons({
-      compiler: 'vue3',
-      customCollections: {
-        [collectionName]: FileSystemIconLoader(localIconPath, svg =>
-          svg.replace(/^<svg\s/, '<svg width="1em" height="1em" '),
-        ),
+    SvgComponent({
+      iconDir: localIconPath,
+      dts: true,
+      dtsDir: getTypesPath(),
+      svgSpriteDomId: 'my-svg-id',
+      prefix: VITE_ICON_PREFFIX,
+      componentName: 'SvgIcon',
+      preserveColor: preserveColorReg,
+      componentStyle: '',
+      optimizeOptions: undefined,
+      scanStrategy: 'component',
+      symbolIdFormatter: (svgName: string, prefix: string): string => {
+        const nameArr = svgName.split('/')
+        if (prefix)
+          nameArr.unshift(prefix)
+        return nameArr.join('-').replace(/\.svg$/, '')
       },
-      scale: 1,
-      defaultClass: 'inline-block',
     }),
     Components({
       dts: 'types/components.d.ts',
       types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
-      resolvers: [
-        IconsResolver({ customCollections: [collectionName], componentPrefix: VITE_ICON_PREFFIX }),
-      ],
     }),
     AutoImport({
       dts: 'types/auto-imports.d.ts',
       imports: [
         'vue',
-        'vue-router',
-        'vue-i18n',
+        // 'vue-router',
+        // 'vue-i18n',
         'vue/macros',
-        '@vueuse/head',
-        '@vueuse/core',
-        'pinia',
+        // '@vueuse/head',
+        // '@vueuse/core',
+        // 'pinia',
         {
           'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
         },
       ],
-    }),
+    }) as PluginOption,
   ]
 }

@@ -1,11 +1,11 @@
 import { defineConfig, loadEnv } from 'vite'
-import { configEnable, createViteProxy, getRootPath, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins } from './config'
+import { configEnable, createViteProxy, getRootDir, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins } from './config'
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
 
-  const rootPath = getRootPath()
+  const rootPath = getRootDir()
   const srcPath = getSrcPath()
 
   const isOpenProxy = viteEnv.VITE_HTTP_PROXY === configEnable.open

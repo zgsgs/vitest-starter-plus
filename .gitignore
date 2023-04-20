@@ -25,3 +25,5 @@ dist-ssr
 
 components.d.ts
 auto-imports.d.ts
+svg-component.d.ts
+svg-component-global.d.ts
