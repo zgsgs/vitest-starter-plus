@@ -10,12 +10,16 @@ import HelloWorld from './components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/svg-icon/vue.svg" class="logo vue" alt="Vue logo">
     </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <icon-local-ts class="logo ts" alt="TS logo" />
+    </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue + TS" />
 </template>
 
 <style scoped>
 .logo {
+  width: 6em;
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -26,5 +30,8 @@ import HelloWorld from './components/HelloWorld.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.logo.ts:hover {
+  filter: drop-shadow(0 0 2em #007accaa);
 }
 </style>
