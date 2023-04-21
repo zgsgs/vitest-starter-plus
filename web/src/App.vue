@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import HelloWorld from '@/components/HelloWorld.vue'
+import CopyWorld from '@/components/CopyWorld.vue'
+import FetchWorld from '@/components/FetchWorld.vue'
 </script>
 
 <template>
-  <div>
+  <div class="flex justify-center items-center">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo">
     </a>
@@ -13,8 +15,27 @@ import HelloWorld from '@/components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <SvgIcon name="icon-local-ts" class="logo ts" alt="TS logo" />
     </a>
+    <a href="https://www.docker.com/" target="_blank">
+      <div class="logo">
+        <i class="h-full w-full i-skill-icons-docker docker" />
+      </div>
+    </a>
+    <a href="https://mswjs.io/" target="_blank">
+      <div class="logo">
+        <i class="h-full w-full i-logos-msw-icon msw" />
+      </div>
+    </a>
+    <a href="https://cn.vitest.dev/" target="_blank">
+      <div class="logo">
+        <i class="h-full w-full i-logos-vitest vitest" />
+      </div>
+    </a>
   </div>
-  <HelloWorld msg="Vite + Vue + TS" />
+  <div class="flex justify-center items-center">
+    <HelloWorld msg="Vite + Vue + TS + Docker + MSW + Vitest" />
+    <CopyWorld msg="Vite + Vue + TS + Docker + MSW + Vitest" />
+    <FetchWorld msg="Vite + Vue + TS + Docker + MSW + Vitest" />
+  </div>
 </template>
 
 <style scoped>
@@ -33,5 +54,14 @@ import HelloWorld from '@/components/HelloWorld.vue'
 }
 .logo.ts:hover {
   filter: drop-shadow(0 0 2em #007accaa);
+}
+.docker:hover {
+  filter: drop-shadow(0 0 2em #2396edaa);
+}
+.msw:hover {
+  filter: drop-shadow(0 0 2em #ed7344aa);
+}
+.vitest:hover {
+  filter: drop-shadow(0 0 2em #fcc72baa);
 }
 </style>

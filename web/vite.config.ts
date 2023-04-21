@@ -1,4 +1,5 @@
-import { defineConfig, loadEnv } from 'vite'
+import { loadEnv } from 'vite'
+import { defineConfig } from 'vitest/config'
 import { configEnable, createViteProxy, getRootDir, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins } from './config'
 
 // https://vitejs.dev/config/
@@ -26,6 +27,7 @@ export default defineConfig((configEnv) => {
       proxy: createViteProxy(isOpenProxy, envConfig),
     },
     test: {
+      globals: true,
       environment: 'happy-dom',
       // 运行在每个测试文件前面
       setupFiles: [getTestPath('./test/setupFiles/index.ts')],

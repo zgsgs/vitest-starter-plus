@@ -1,5 +1,5 @@
 {
-  "name": "todo-test-vue",
+  "name": "web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,10 +18,12 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.5",
+    "@iconify/json": "^2.2.52",
     "@types/crypto-js": "^4.1.1",
     "@types/node": "^18.15.11",
     "@unocss/preset-icons": "^0.51.4",
-    "@unocss/vite": "^0.51.4",
+    "@unocss/preset-uno": "^0.51.5",
+    "@unocss/vite": "^0.51.5",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue-macros/volar": "^0.9.5",
@@ -43,5 +45,8 @@
   },
   "eslintConfig": {
     "extends": "@antfu"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

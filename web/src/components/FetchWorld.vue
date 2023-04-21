@@ -1,0 +1,27 @@
+<script setup lang="ts">
+/* 宏定义 */
+defineOptions({ name: 'FetchWorld' })
+/* Hooks */
+/* 状态数据 */
+const state = reactive({
+  info: '',
+})
+/* 其他数据 */
+
+/* 计算 */
+/* 监听 */
+/* 事件 */
+/* 生命周期 */
+/* 函数 */
+async function fetchInfo(): Promise<void> {
+  state.info = await fetch('/info').then(res => res.json())
+}
+</script>
+
+<template>
+  <button @click="fetchInfo">
+    Get
+  </button>
+</template>
+
+<style scoped></style>

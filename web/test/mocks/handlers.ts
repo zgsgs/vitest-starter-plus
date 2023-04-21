@@ -26,7 +26,7 @@ const articles = [
 ]
 
 export const handlers = [
-  rest.get('/api/articles/:id', (req, res, ctx) => {
+  rest.get('http://localhost/api/articles/:id', (req, res, ctx) => {
     const { id } = req.params
     const data = articles.find(item => item.id === parseInt(id as string, 10))
     if (data)
@@ -35,7 +35,7 @@ export const handlers = [
     else
       return res(ctx.status(500))
   }),
-  rest.get('/info', (req, res, ctx) => {
+  rest.get('http://localhost/info', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json('一段文本信息'))
   }),
 ]
