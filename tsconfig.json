@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -15,7 +16,20 @@
     ],
     "skipLibCheck": true,
     "noEmit": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "~/*": [
+        "*"
+      ]
+    },
   },
+  "include": [
+    "src/*",
+    "test/*",
+    "types/*",
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -1,18 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "~/*": [
-        "*"
-      ]
-    },
     "types": [
       "vite/client",
       "node",
@@ -31,9 +22,7 @@
     ]
   },
   "include": [
-    "src",
     "config",
-    "types",
     "vite.config.ts",
   ],
   "exclude": [
