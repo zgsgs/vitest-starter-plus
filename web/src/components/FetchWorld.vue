@@ -7,7 +7,6 @@ const state = reactive({
   info: '',
 })
 /* 其他数据 */
-
 /* 计算 */
 /* 监听 */
 /* 事件 */
@@ -20,7 +19,7 @@ async function fetchInfo(): Promise<void> {
 
 <template>
   <button @click="fetchInfo">
-    Get
+    {{ state.info || 'Get' }}
   </button>
 </template>
 
