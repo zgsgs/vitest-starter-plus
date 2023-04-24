@@ -13,7 +13,7 @@ const state = reactive({
 /* 生命周期 */
 /* 函数 */
 async function fetchInfo(): Promise<void> {
-  state.info = await fetch('/info').then(res => res.json())
+  state.info = await fetch('/user/info').then(res => res.json())
 }
 </script>
 
