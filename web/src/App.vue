@@ -2,6 +2,7 @@
 import {
   AppIcon,
   CopyWorld,
+  ExcelPreview,
   FetchWorld,
   HelloWorld,
 } from '@/components'
@@ -14,4 +15,5 @@ import {
     <CopyWorld text="Vite+Vue+TS+Docker+MSW+Vitest " />
     <FetchWorld />
   </div>
+  <ExcelPreview />
 </template>
