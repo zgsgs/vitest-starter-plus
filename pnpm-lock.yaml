@@ -2,7 +2,11 @@ lockfileVersion: '6.0'
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      '@blog/shared':
+        specifier: workspace:^
+        version: link:packages/shared
 
   packages/shared: {}
 
