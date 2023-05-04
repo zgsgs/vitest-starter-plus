@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { LayoutSider } from './components'
+
 /* Hooks */
 /* 状态数据 */
 // const state = reactive({})
@@ -12,10 +14,8 @@
 </script>
 
 <template>
-  <div class="flex gap-2 justify-center items-center">
-    <div>Home</div>
-    <a href="/about">About</a>
-  </div>
+  <LayoutSider />
+  <!-- <LayoutContent /> -->
 </template>
 
 <style scoped></style>

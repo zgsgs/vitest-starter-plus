@@ -5,7 +5,7 @@ import {
   ExcelPreview,
   FetchWorld,
   HelloWorld,
-} from '@/components'
+} from './components'
 
 /* Hooks */
 /* 状态数据 */
