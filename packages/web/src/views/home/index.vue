@@ -17,5 +17,3 @@ import { LayoutSider } from './components'
   <LayoutSider />
   <!-- <LayoutContent /> -->
 </template>
-
-<style scoped></style>

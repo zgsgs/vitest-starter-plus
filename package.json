@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+		"preinstall": "npx -y only-allow pnpm",
     "dev": "pnpm -F @blog/web dev",
     "dev:web": "pnpm -F @blog/web dev",
     "dev:server": "pnpm -F @blog/server dev",

@@ -35,5 +35,3 @@ async function handleClick() {
     {{ state.text || '拷贝' }}
   </button>
 </template>
-
-<style scoped></style>

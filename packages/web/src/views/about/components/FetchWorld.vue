@@ -22,5 +22,3 @@ async function fetchInfo(): Promise<void> {
     {{ state.info || 'Get' }}
   </button>
 </template>
-
-<style scoped></style>

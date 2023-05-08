@@ -43,5 +43,3 @@ const hotSettings = reactive({
 <template>
   <HotTable :settings="hotSettings" />
 </template>
-
-<style scoped></style>

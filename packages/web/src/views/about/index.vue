@@ -28,5 +28,3 @@ import {
   </div>
   <ExcelPreview />
 </template>
-
-<style scoped></style>

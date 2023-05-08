@@ -34,5 +34,3 @@ onMounted(() => {
 <template>
   <hot-table :settings="hotSettings" />
 </template>
-
-<style scoped></style>
