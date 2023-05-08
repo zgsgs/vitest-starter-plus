@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-export function useCopy(text: string) {
+export function useCopy(text?: string) {
   /**
  * 复制内容到系统剪切板
  * @param {string} value
@@ -26,7 +26,7 @@ export function useCopy(text: string) {
 
     return result
   }
-  const copyText = () => copy(text)
+  const copyText = () => text ? copy(text) : null
 
   return {
     text,
