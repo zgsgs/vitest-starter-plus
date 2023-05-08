@@ -17,3 +17,9 @@ export const dataTypeLabels: { [K in TypeUtils.DataTypeStringKey]: TypeUtils.Dat
   map: '[object Map]',
   file: '[object File]',
 }
+
+/** 语言类型 */
+export const languageType = {
+  zh: 'zh-CN',
+  en: 'en',
+}
