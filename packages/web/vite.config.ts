@@ -1,16 +1,11 @@
-import { loadEnv } from 'vite'
 import { defineConfig } from 'vitest/config'
-import { configEnable, createViteProxy, getRootDir, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins } from './config'
+import { setupVitePlugins, useEnv, usePath, useProxy } from './build'
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => {
-  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
-
-  const rootPath = getRootDir()
-  const srcPath = getSrcPath()
-
-  const isOpenProxy = viteEnv.VITE_HTTP_PROXY === configEnable.open
-  const envConfig = getServiceEnvConfig(viteEnv)
+  const { rootPath, srcPath, setupFilesPath } = usePath()
+  const { viteEnv } = useEnv(configEnv)
+  const { createViteProxy } = useProxy()
 
   return {
     plugins: setupVitePlugins(viteEnv),
@@ -24,13 +19,13 @@ export default defineConfig((configEnv) => {
       host: '0.0.0.0',
       port: 3200,
       open: true,
-      proxy: createViteProxy(isOpenProxy, envConfig),
+      proxy: createViteProxy(viteEnv),
     },
     test: {
       globals: true,
       environment: 'happy-dom',
       // 运行在每个测试文件前面
-      setupFiles: [getTestPath('./test/setupFiles/index.ts')],
+      setupFiles: [setupFilesPath],
     },
   }
 })

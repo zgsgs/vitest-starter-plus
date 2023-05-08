@@ -31,20 +31,14 @@
       ]
     },
     "types": [
+			"vite/client",
+			"node",
+			"unplugin-vue-macros/macros-global",
       "vitest/globals",
     ],
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "test/**/*.ts",
-    "types/**/*.d.ts",
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+	},
+	"exclude": [
+		"node_modules",
+		"dist"
   ]
 }

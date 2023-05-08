@@ -5,12 +5,12 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import SvgComponent from 'unplugin-svg-component/vite'
 import type { PluginOption } from 'vite'
-import { getSrcPath, getTypesPath } from '../utils'
+import { usePath } from '../hooks'
 
 export default function unplugin(viteEnv: ImportMetaEnv) {
   const { VITE_ICON_PREFFIX, VITE_ICON_LOCAL_PREFFIX } = viteEnv
 
-  const localIconPath = `${getSrcPath()}/assets/svg-icon`
+  const { typesPath, localIconPath } = usePath()
   /** 本地svg图标集合名称 */
   const preserveColorReg = new RegExp(`${VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')}`)
 
@@ -24,7 +24,7 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
     SvgComponent({
       iconDir: localIconPath,
       dts: true,
-      dtsDir: getTypesPath(),
+      dtsDir: typesPath,
       svgSpriteDomId: 'my-svg-id',
       prefix: VITE_ICON_PREFFIX,
       componentName: 'SvgIcon',
@@ -40,11 +40,11 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
       },
     }),
     Components({
-      dts: 'types/components.d.ts',
+      dts: `${typesPath}/components.d.ts`,
       types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
     }),
     AutoImport({
-      dts: 'types/auto-imports.d.ts',
+      dts: `${typesPath}/auto-imports.d.ts`,
       imports: [
         'vue',
         // 'vue-router',

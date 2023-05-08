@@ -1,13 +1,14 @@
 import type { PluginOption } from 'vite'
 import Unocss from '@unocss/vite'
-import { configEnable } from '../common'
+import { useConfig } from '../hooks'
 import unplugin from './unplugin'
 import visualizer from './visualizer'
 
 export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | PluginOption[])[] {
   const plugins = [...unplugin(viteEnv), Unocss()]
+  const { isOpenVisualizer } = useConfig(viteEnv)
 
-  if (viteEnv.VITE_VISUALIZER === configEnable.open)
+  if (isOpenVisualizer)
     plugins.push(visualizer)
 
   return plugins
