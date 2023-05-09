@@ -1,3 +1,9 @@
-import setupAssets from './assets'
+import { setupAssets } from './assets'
+import { setupComponents } from './components'
+import { setupMock } from './mock'
 
-export { setupAssets }
+export {
+  setupAssets,
+  setupComponents,
+  setupMock,
+}
