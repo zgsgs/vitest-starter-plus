@@ -50,6 +50,7 @@ importers:
       '@types/node': ^18.16.1
       '@unocss/preset-icons': ^0.51.8
       '@unocss/preset-uno': ^0.51.8
+      '@unocss/reset': ^0.51.12
       '@unocss/vite': ^0.51.8
       '@vitejs/plugin-vue': ^4.2.1
       '@vitejs/plugin-vue-jsx': ^3.0.1
@@ -94,6 +95,7 @@ importers:
       '@types/node': 18.16.1
       '@unocss/preset-icons': 0.51.8
       '@unocss/preset-uno': 0.51.8
+      '@unocss/reset': 0.51.12
       '@unocss/vite': 0.51.8_vite@4.3.3
       '@vitejs/plugin-vue': 4.2.1_vite@4.3.3+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.3.3+vue@3.2.47
@@ -2105,6 +2107,10 @@ packages:
     dependencies:
       '@unocss/core': 0.51.8
       '@unocss/preset-mini': 0.51.8
+    dev: true
+
+  /@unocss/reset/0.51.12:
+    resolution: {integrity: sha512-VWcudNyGPGU/C+Jrfzbx8BqhFh/QENfUPkKcC8hpqxC4b5PsTJcF8zLu6KgabM0X0CzVouIvVcdZIcUCUEH77Q==}
     dev: true
 
   /@unocss/reset/0.51.8:
