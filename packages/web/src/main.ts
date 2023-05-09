@@ -6,6 +6,7 @@ import { setupAssets, setupComponents, setupMock } from './plugins'
 async function setupApp() {
   setupAssets()
   setupMock()
+  setupMock()
   const app = createApp(App)
   app.use(router)
   setupComponents(app)
