@@ -6,6 +6,7 @@ import {
   FetchWorld,
   HelloWorld,
 } from './components'
+import { t } from '@/locales'
 
 /* Hooks */
 /* 状态数据 */
@@ -25,6 +26,7 @@ import {
   <div class="flex gap-2 justify-center items-center">
     <CopyWorld text="Vite+Vue+TS+Docker+MSW+Vitest " />
     <FetchWorld />
+    {{ t('system.title') }}
   </div>
   <ExcelPreview />
 </template>

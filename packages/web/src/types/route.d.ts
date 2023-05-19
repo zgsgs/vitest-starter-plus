@@ -85,8 +85,8 @@ declare namespace AuthRoute {
       } & Omit<import('vue-router').RouteRecordRaw, 'name' | 'path' | 'redirect' | 'component' | 'children' | 'meta'>
     : never;
 
-	/** 前端导入的路由模块 */
-	type RouteModule = Record<string, { default: Route }>;
+  /** 前端导入的路由模块 */
+  type RouteModule = Record<string, { default: Route }>;
 }
 
 /** 路由工具 */

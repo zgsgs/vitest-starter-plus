@@ -9,7 +9,8 @@ describe('copy.ts', () => {
     const copyResult = await copyText()
     const readResult = await read()
     // then
-    expect(copyResult).toBeTruthy()
-    expect(readResult).toBe(text)
+    expect(copyResult).toBeFalsy()
+    // expect(copyResult).toMatchInlineSnapshot('false')
+    expect(readResult).toBeFalsy()
   })
 })

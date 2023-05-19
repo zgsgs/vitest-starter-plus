@@ -7,16 +7,10 @@ import 'handsontable/dist/handsontable.full.css'
 registerAllModules()
 
 /* 组件属性 */
-// interface Props {
-// }
-// const props = withDefaults(defineProps<Props>(), {
-// })
 /* 组件事件 */
-// const emit = defineEmits([])
 /* 宏定义 */
 defineOptions({ name: 'ExcelPreview' })
 /* Hooks */
-// const attrs = useAttrs()
 /* 状态数据 */
 const hotSettings = reactive({
   data: [

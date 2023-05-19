@@ -33,7 +33,6 @@
     "types": [
       "vite/client",
       "node",
-      "unplugin-vue-macros/macros-global",
       "vitest/globals"
     ]
   },

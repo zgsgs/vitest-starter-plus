@@ -1,11 +1,13 @@
 import type { PluginOption } from 'vite'
 import Unocss from '@unocss/vite'
+import Vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import { useConfig } from '../hooks'
 import unplugin from './unplugin'
 import visualizer from './visualizer'
 
 export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | PluginOption[])[] {
-  const plugins = [...unplugin(viteEnv), Unocss()]
+  const plugins = [Vue(), VueJsx(), ...unplugin(viteEnv), Unocss()]
   const { isOpenVisualizer } = useConfig(viteEnv)
 
   if (isOpenVisualizer)

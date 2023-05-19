@@ -23,7 +23,7 @@ declare namespace PageRoute{
     | 'not-found'
     | 'about'
 
-		/**
+    /**
    * last degree route key, which has the page file
    * @translate 最后一级路由(该级路有对应的页面文件)
    */

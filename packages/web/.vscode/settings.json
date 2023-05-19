@@ -1,9 +1,22 @@
 {
-  "i18n-ally.localesPaths": [
-    "src/locales",
-    "src/locales/lang"
-  ],
+	"i18n-ally.localesPaths": [
+		"src/locales",
+		"src/locales/lang"
+	],
+	"i18n-ally.enabledParsers": [
+		"ts",
+		"json"
+	],
+	"i18n-ally.enabledFrameworks": [
+		"vue",
+		"react"
+	],
+	"i18n-ally.sortKeys": true,
+	"i18n-ally.keystyle": "nested", // 翻译路径格式,
+	"i18n-ally.sourceLanguage": "en",
+	"i18n-ally.displayLanguage": "zh-CN",
   "cSpell.words": [
-    "composables"
-  ]
+		"composables",
+		"handsontable"
+	]
 }

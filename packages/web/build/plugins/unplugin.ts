@@ -1,6 +1,3 @@
-import VueMacros from 'unplugin-vue-macros/vite'
-import Vue from '@vitejs/plugin-vue'
-import VueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import SvgComponent from 'unplugin-svg-component/vite'
@@ -15,12 +12,6 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
   const preserveColorReg = new RegExp(`${VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')}`)
 
   return [
-    VueMacros({
-      plugins: {
-        vue: Vue(),
-        vueJsx: VueJsx(),
-      },
-    }),
     SvgComponent({
       iconDir: localIconPath,
       dts: true,
@@ -48,8 +39,7 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
       imports: [
         'vue',
         // 'vue-router',
-        // 'vue-i18n',
-        'vue/macros',
+        'vue-i18n',
         // '@vueuse/head',
         // '@vueuse/core',
         // 'pinia',
