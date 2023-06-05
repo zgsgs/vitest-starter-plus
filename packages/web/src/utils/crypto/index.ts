@@ -1,4 +1,4 @@
-import CryptoJS from 'crypto-js'
+import * as CryptoJS from 'crypto-js'
 
 const CryptoSecret = '__CryptoJS_Secret__'
 

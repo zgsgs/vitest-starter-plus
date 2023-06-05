@@ -15,8 +15,9 @@
 	"i18n-ally.keystyle": "nested", // 翻译路径格式,
 	"i18n-ally.sourceLanguage": "en",
 	"i18n-ally.displayLanguage": "zh-CN",
-  "cSpell.words": [
+	"cSpell.words": [
 		"composables",
-		"handsontable"
+		"handsontable",
+		"tribonacci"
 	]
 }
