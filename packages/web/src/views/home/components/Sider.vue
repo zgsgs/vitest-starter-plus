@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 /* 组件属性 */
 /* 组件事件 */
 /* 宏定义 */

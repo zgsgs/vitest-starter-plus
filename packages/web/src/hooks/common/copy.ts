@@ -19,7 +19,7 @@ export function useCopy(text?: string) {
   async function read() {
     if (!navigator.clipboard || !window.isSecureContext) {
       console.error('无法获取 navigator.clipboard 对象')
-      return false
+      return ''
     }
     const result = await navigator.clipboard.readText()
     console.log('读取成功', result)

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Sider } from './index'
 
 /* 组件属性 */
