@@ -1,10 +1,12 @@
 import * as CryptoJS from 'crypto-js'
 
+/** 加密密钥 */
 const CryptoSecret = '__CryptoJS_Secret__'
 
 /**
- * 加密数据
- * @param data - 数据
+ * encrypt the data
+ * @param data 明文
+ * @returns 密文
  */
 export function encrypto(data: unknown) {
   const newData = JSON.stringify(data)
@@ -13,7 +15,8 @@ export function encrypto(data: unknown) {
 
 /**
  * 解密数据
- * @param cipherText - 密文
+ * @param cipherText 密文
+ * @returns 明文
  */
 export function decrypto(cipherText: string) {
   const bytes = CryptoJS.AES.decrypt(cipherText, CryptoSecret)

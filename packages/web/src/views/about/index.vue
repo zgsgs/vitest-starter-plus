@@ -7,17 +7,6 @@ import {
   HelloWorld,
 } from './components'
 import { t } from '@/locales'
-
-/* Hooks */
-/* 状态数据 */
-// const state = reactive({})
-/* 其他数据 */
-
-/* 计算 */
-/* 监听 */
-/* 事件 */
-/* 生命周期 */
-/* 函数 */
 </script>
 
 <template>
@@ -26,7 +15,10 @@ import { t } from '@/locales'
   <div class="flex gap-2 justify-center items-center">
     <CopyWorld text="Vite+Vue+TS+Docker+MSW+Vitest " />
     <FetchWorld />
-    {{ t('system.title') }}
+    <div>
+      <span>I18n:</span>
+      <span>{{ t('message.system.title') }}</span>
+    </div>
   </div>
   <ExcelPreview />
 </template>

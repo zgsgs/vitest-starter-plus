@@ -2,8 +2,6 @@
 import { registerAllModules } from 'handsontable/registry'
 import 'handsontable/dist/handsontable.full.css'
 
-/* Hooks */
-/* 状态数据 */
 const hotSettings = reactive({
   data: [
     ['A1', 'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1', 'I1', 'J1'],
@@ -17,18 +15,11 @@ const hotSettings = reactive({
   height: 'auto',
   licenseKey: 'non-commercial-and-evaluation',
 })
-/* 其他数据 */
-
-/* 计算 */
 computed(() => {})
-/* 监听 */
 watch(() => {}, () => {})
-/* 事件 */
-/* 生命周期 */
 onMounted(() => {
   registerAllModules()
 })
-/* 函数 */
 </script>
 
 <template>

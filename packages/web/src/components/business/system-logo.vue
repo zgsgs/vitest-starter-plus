@@ -1,17 +1,5 @@
-<script setup>
-/* 组件属性 */
-/* 组件事件 */
-/* 宏定义 */
+<script setup lang="ts">
 defineOptions({ name: 'Logo' })
-/* Hooks */
-/* 状态数据 */
-/* 其他数据 */
-
-/* 计算 */
-/* 监听 */
-/* 事件 */
-/* 生命周期 */
-/* 函数 */
 </script>
 
 <template>

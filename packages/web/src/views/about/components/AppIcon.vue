@@ -1,16 +1,5 @@
 <script setup lang="ts">
-/* 宏定义 */
 defineOptions({ name: 'AppIcon' })
-/* 组件属性 */
-/* 组件事件 */
-/* 状态数据 */
-/* Hooks */
-/* 其他数据 */
-/* 计算 */
-/* 监听 */
-/* 事件 */
-/* 生命周期 */
-/* 函数 */
 </script>
 
 <template>

@@ -2,6 +2,7 @@
 import { routePath } from '@/router'
 import { setLocale, t } from '@/locales'
 import { languageType } from '@/constants'
+import { useBoolean } from '@/hooks'
 
 defineProps<Props>()
 

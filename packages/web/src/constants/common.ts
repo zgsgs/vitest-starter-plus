@@ -19,7 +19,7 @@ export const dataTypeLabels: { [K in TypeUtils.DataTypeStringKey]: TypeUtils.Dat
 }
 
 /** 语言类型 */
-export const languageType = {
+export const languageType: { [key: string]: 'en' | 'zh-CN' } = {
   zh: 'zh-CN',
   en: 'en',
 }

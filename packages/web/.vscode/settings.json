@@ -1,7 +1,10 @@
 {
 	"i18n-ally.localesPaths": [
+		"src/locales/lang",
 		"src/locales",
-		"src/locales/lang"
+	],
+	"i18n-ally.ignoredLocales": [
+		"src/locales/lang/index.ts"
 	],
 	"i18n-ally.enabledParsers": [
 		"ts",
@@ -14,7 +17,7 @@
 	"i18n-ally.sortKeys": true,
 	"i18n-ally.keystyle": "nested", // 翻译路径格式,
 	"i18n-ally.sourceLanguage": "en",
-	"i18n-ally.displayLanguage": "zh-CN",
+	"i18n-ally.displayLanguage": "zh-cn",
 	"cSpell.words": [
 		"composables",
 		"handsontable",
