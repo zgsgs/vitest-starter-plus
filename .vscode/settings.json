@@ -1,0 +1,28 @@
+{
+  "git.ignoreLimitWarning": true,
+  "unocss.root": "web",
+  "i18n-ally.localesPaths": [
+    "packages/web/src/locales/lang",
+    "packages/web/src/locales",
+  ],
+  "i18n-ally.ignoredLocales": [
+    "packages/web/src/locales/lang/index.ts",
+    "packages/web/src/locales/index.ts"
+  ],
+  "i18n-ally.enabledParsers": [
+    "ts",
+    "json"
+  ],
+  "i18n-ally.enabledFrameworks": [
+    "vue",
+    "react"
+  ],
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.keystyle": "nested", // 翻译路径格式,
+  "i18n-ally.sourceLanguage": "zh-cn",
+  "cSpell.words": [
+    "handsontable",
+    "preinstall",
+    "soybeanjs"
+  ],
+}

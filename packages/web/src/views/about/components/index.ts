@@ -1,8 +1,8 @@
-import AppIcon from './AppIcon.vue'
-import HelloWorld from './HelloWorld.vue'
-import CopyWorld from './CopyWorld.vue'
-import FetchWorld from './FetchWorld.vue'
-import ExcelPreview from './ExcelPreview.vue'
+import AppIcon from './app-icon.vue'
+import HelloWorld from './hello-world.vue'
+import CopyWorld from './copy-world.vue'
+import FetchWorld from './fetch-world.vue'
+import ExcelPreview from './excel-preview.vue'
 
 export {
   AppIcon,

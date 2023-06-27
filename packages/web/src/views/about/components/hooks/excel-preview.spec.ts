@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { useExcelPreview } from './ExcelPreview'
+import { useExcelPreview } from './excel-preview'
 
 describe('test excel preview', () => {
   it('should out stetting options', () => {
