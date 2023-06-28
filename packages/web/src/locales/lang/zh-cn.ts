@@ -15,6 +15,10 @@ const locale: LocaleMessages<I18nType.Schema> = {
         about: '关于',
       },
     },
+    common: {
+      copy: '复制',
+      read: '读取',
+    },
   },
 }
 

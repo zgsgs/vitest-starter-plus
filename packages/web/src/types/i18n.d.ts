@@ -1,4 +1,3 @@
-
 declare namespace I18nType {
   interface Schema {
     system: {
@@ -13,6 +12,10 @@ declare namespace I18nType {
       about: {
         about: string;
       };
+    };
+    common: {
+      copy: string;
+      read: string;
     };
   }
 }

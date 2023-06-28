@@ -1,24 +1,19 @@
 <script setup lang="ts">
 import {
   AppIcon,
-  CopyWorld,
+  CopyDemo,
   ExcelPreview,
-  FetchWorld,
+  FetchDemo,
   HelloWorld,
 } from './components'
-import { t } from '@/locales'
 </script>
 
 <template>
-  <AppIcon />
-  <HelloWorld msg="Vite + Vue + TS + Docker + MSW + Vitest" />
-  <div class="flex gap-2 justify-center items-center">
-    <CopyWorld text="Vite+Vue+TS+Docker+MSW+Vitest " />
-    <FetchWorld />
-    <div>
-      <span>I18n:</span>
-      <span>{{ t('message.system.title') }}</span>
-    </div>
+  <div class="flex flex-col gap-2 justify-center">
+    <AppIcon />
+    <HelloWorld msg="Vite + Vue + TS + Docker + MSW + Vitest" />
+    <FetchDemo />
+    <CopyDemo value="Vite+Vue+TS+Docker+MSW+Vitest " />
+    <ExcelPreview />
   </div>
-  <ExcelPreview />
 </template>

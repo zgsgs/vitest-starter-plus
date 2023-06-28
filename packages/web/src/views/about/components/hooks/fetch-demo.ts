@@ -1,10 +1,10 @@
-export function useFetchWorld() {
+export function useFetchDemo() {
   const state = reactive({
-    info: '',
+    data: '',
   })
 
   async function fetchInfo(): Promise<void> {
-    state.info = await fetch('/user/info').then(res => res.json())
+    state.data = await fetch('/user/info').then(res => res.json())
   }
 
   return {

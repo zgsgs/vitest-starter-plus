@@ -15,6 +15,10 @@ const locale: LocaleMessages<I18nType.Schema> = {
         about: 'About',
       },
     },
+    common: {
+      copy: 'Copy',
+      read: 'Read',
+    },
   },
 }
 export default locale

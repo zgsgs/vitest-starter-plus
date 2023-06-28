@@ -1,18 +1,19 @@
-/* eslint-disable no-console */
+export function useCopy() {
+  const state = reactive({
+    text: '',
+  })
 
-export function useCopy(text?: string) {
   /**
  * 复制内容到系统剪切板
  * @param {string} value
  */
-  function copy(value: string) {
+  async function copy(value: string) {
     if (!navigator.clipboard || !window.isSecureContext) {
       console.error('无法获取 navigator.clipboard 对象')
       return false
     }
-    navigator.clipboard.writeText(value).then(() => {
-      console.log('复制成功', value)
-    })
+    await navigator.clipboard.writeText(value)
+    // console.log('复制成功', value)
     return true
   }
 
@@ -22,15 +23,14 @@ export function useCopy(text?: string) {
       return ''
     }
     const result = await navigator.clipboard.readText()
-    console.log('读取成功', result)
+    // console.log('读取成功', result)
 
+    state.text = result
     return result
   }
-  const copyText = () => text ? copy(text) : null
 
   return {
-    text,
-    copyText,
+    ...toRefs(state),
     copy,
     read,
   }
