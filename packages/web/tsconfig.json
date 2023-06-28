@@ -22,6 +22,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+		"forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": [
         "src/*"
@@ -33,7 +34,7 @@
     "types": [
       "vite/client",
       "node",
-      "vitest/globals"
+			// "vitest/globals"
     ]
   },
   "exclude": [

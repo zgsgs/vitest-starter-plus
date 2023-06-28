@@ -42,10 +42,8 @@ const state = reactive({
 </script>
 
 <template>
-  <template v-for="(m, index) in state.menus" :key="index">
-    <a :href="m.path">
-      <i :class="m.icon" />
-      <div>{{ m.name }}</div>
-    </a>
-  </template>
+  <a v-for="(m, index) in state.menus" :key="index" :href="m.path">
+    <i :class="m.icon" />
+    <div>{{ m.name }}</div>
+  </a>
 </template>

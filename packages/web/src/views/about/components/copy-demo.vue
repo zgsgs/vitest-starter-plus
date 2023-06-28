@@ -1,10 +1,7 @@
 <script setup lang="ts">
-// import type { CopyDemoProps } from './hooks'
+import type { CopyDemoProps } from './hooks'
 import { useCopy } from '@/hooks'
 
-interface CopyDemoProps {
-  value: string
-}
 const props = withDefaults(defineProps<CopyDemoProps>(), {
   value: '',
 })

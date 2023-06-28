@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Sider } from './index'
+import { Sider } from '.'
 
 defineOptions({ name: 'LayoutSider' })
 </script>
