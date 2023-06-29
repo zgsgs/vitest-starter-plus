@@ -1,7 +1,7 @@
+import type { PluginOption } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import SvgComponent from 'unplugin-svg-component/vite'
-import type { PluginOption } from 'vite'
 import { usePath } from '../hooks'
 
 export default function unplugin(viteEnv: ImportMetaEnv) {
