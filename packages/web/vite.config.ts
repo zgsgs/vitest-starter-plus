@@ -32,7 +32,6 @@ export default defineConfig((configEnv) => {
     test: {
       globals: true,
       environment: 'happy-dom',
-      // 运行在每个测试文件前面
       setupFiles: [setupFilesPath],
     },
   }

@@ -1,16 +1,12 @@
 <script setup lang="ts">
+import type { GlobalContentProps } from '.'
 import { useAppStore, useRouteStore, useThemeStore } from '@/store'
 
-withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<GlobalContentProps>(), {
   showPadding: true,
 })
 
 defineOptions({ name: 'GlobalContent' })
-
-interface Props {
-  /** 显示padding */
-  showPadding?: boolean
-}
 
 const app = useAppStore()
 const theme = useThemeStore()

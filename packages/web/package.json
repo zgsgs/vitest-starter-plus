@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@handsontable/vue3": "^12.4.0",
-    "@soybeanjs/vue-materials": "^0.1.16",
     "handsontable": "^12.4.0",
     "lodash-es": "^4.17.21",
     "naive-ui": "^2.34.4",

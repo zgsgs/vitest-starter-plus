@@ -1,24 +1,13 @@
 <script setup lang="ts">
-import { routePath } from '@/router'
-import { setLocale, t } from '@/locales'
-import { languageType } from '@/constants'
-import { useBoolean } from '@/hooks'
+import { useGlobalLogo } from '.'
 
-defineProps<Props>()
+withDefaults(defineProps<GlobalLogoProps>(), {
+  showTitle: true,
+})
 
 defineOptions({ name: 'GlobalLogo' })
 
-interface Props {
-  /** 显示名字 */
-  showTitle: boolean
-}
-const { bool, toggle } = useBoolean()
-const routeHomePath = routePath('root')
-
-function toggleLocal() {
-  toggle()
-  setLocale(bool ? languageType.en : languageType.zh)
-}
+const { routeHomePath, showTitle, toggleLocal } = useGlobalLogo()
 </script>
 
 <template>
@@ -29,7 +18,7 @@ function toggleLocal() {
       class="font-bold text-primary pl-8px transition ease-in-out text-16px duration-300"
       @click="toggleLocal"
     >
-      {{ t('message.system.title') }}
+      {{ $t('message.system.title') }}
     </h2>
   </router-link>
 </template>

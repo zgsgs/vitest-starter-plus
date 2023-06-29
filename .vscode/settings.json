@@ -22,6 +22,7 @@
   "i18n-ally.sourceLanguage": "zh-cn",
 	"vitest.commandLine": "run",
   "cSpell.words": [
+    "antv",
     "auths",
     "brotli",
     "handsontable",
