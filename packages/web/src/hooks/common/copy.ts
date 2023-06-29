@@ -1,3 +1,5 @@
+import { reactive, toRefs } from 'vue'
+
 export function useCopy() {
   const state = reactive({
     text: '',

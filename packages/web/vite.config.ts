@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
 import { setupVitePlugins, useEnv, usePath, useProxy } from './build'
 
 // https://vitejs.dev/config/
@@ -21,6 +21,13 @@ export default defineConfig((configEnv) => {
       port: 3600,
       open: true,
       proxy: createViteProxy(viteEnv),
+    },
+    build: {
+      reportCompressedSize: false,
+      sourcemap: false,
+      commonjsOptions: {
+        ignoreTryCatch: false,
+      },
     },
     test: {
       globals: true,

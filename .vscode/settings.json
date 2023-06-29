@@ -20,6 +20,7 @@
   "i18n-ally.sortKeys": true,
   "i18n-ally.keystyle": "nested", // 翻译路径格式,
   "i18n-ally.sourceLanguage": "zh-cn",
+	"vitest.commandLine": "run",
   "cSpell.words": [
     "auths",
     "brotli",

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import HelloWorld from './HelloWorld.vue'
+import { HelloWorld } from '..'
 
 describe('', () => {
   const msg = '一段有意思的话'
