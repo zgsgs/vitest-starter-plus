@@ -17,16 +17,15 @@ export function sortRoutes(routes: AuthRoute.Route[]) {
  * @param modules - 路由模块
  */
 export function handleModuleRoutes(modules: AuthRoute.RouteModule) {
-  const routes: AuthRoute.Route[] = []
-
-  Object.keys(modules).forEach((key) => {
+  const routes = Object.keys(modules).reduce((acc: AuthRoute.Route[], key) => {
     const item = modules[key].default
     if (item)
-      routes.push(item)
-
+      acc.push(item)
     else
       window.console.error(`路由模块解析出错: key = ${key}`)
-  })
+
+    return acc
+  }, [])
 
   return sortRoutes(routes)
 }

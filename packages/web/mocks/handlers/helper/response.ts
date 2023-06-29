@@ -1,5 +1,5 @@
 interface retType {
-  code?: HTTP.CustomStatusCode
+  code?: Http.CustomStatusCode
   data?: unknown | null
   msg?: string
 }

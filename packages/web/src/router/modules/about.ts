@@ -1,9 +1,11 @@
+import { t } from '@/locales'
+
 const about: AuthRoute.Route = {
   name: 'about',
   path: '/about',
   component: 'self',
   meta: {
-    title: '关于',
+    title: t('message.routes.about.about'),
     requiresAuth: true,
     keepAlive: true,
     singleLayout: 'basic',

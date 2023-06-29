@@ -25,6 +25,7 @@
     "brotli",
     "handsontable",
     "preinstall",
-    "soybeanjs"
+    "soybeanjs",
+    "wechat"
   ],
 }

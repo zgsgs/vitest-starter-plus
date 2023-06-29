@@ -1,26 +1,11 @@
-import type { RouteRecordRaw } from 'vue-router'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { transformAuthRouteToVueRoutes } from './utils/transform'
+import { constantRoutes } from './modules/_builtin'
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'Home页面',
-    component: () => import('@/views/about/index.vue'),
-  },
-  {
-    path: '/about',
-    name: '关于',
-    component: () => import('@/views/about/index.vue'),
-  },
-  {
-    path: '/test',
-    name: '测试页面',
-    component: () => import('@/views/about/index.vue'),
-  },
-]
+const { VITE_HASH_ROUTE = 'N', VITE_BASE_URL } = import.meta.env
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  history: VITE_HASH_ROUTE === 'Y' ? createWebHashHistory(VITE_BASE_URL) : createWebHistory(VITE_BASE_URL),
+  routes: transformAuthRouteToVueRoutes(constantRoutes),
 })
 
 export default router

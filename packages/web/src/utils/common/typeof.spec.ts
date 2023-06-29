@@ -2,41 +2,28 @@ import { isBoolean, isNull, isNumber, isString, isUndefined } from './typeof'
 
 describe('typeof', () => {
   it('should is number', () => {
-    // given
-    const val = 123
-    // when
-    const result = isNumber(val)
-    // then
+    const given = 123
+    const result = isNumber(given)
     expect(result).toBeTruthy()
   })
   it('should is string', () => {
-    // given
-    // when
-    // then
-    expect(isString('text')).toBeTruthy()
+    const given = 'text'
+    const result = isString(given)
+    expect(result).toBeTruthy()
   })
   it('should is boolean', () => {
-    // given
-    const val = false
-    // when
-    const result = isBoolean(val)
-    // then
+    const given = false
+    const result = isBoolean(given)
     expect(result).toBeTruthy()
   })
   it('should is null', () => {
-    // given
-    const val = null
-    // when
-    const result = isNull(val)
-    // then
+    const given = null
+    const result = isNull(given)
     expect(result).toBeTruthy()
   })
   it('should is undefined', () => {
-    // given
-    const val = undefined
-    // when
-    const result = isUndefined(val)
-    // then
+    const given = undefined
+    const result = isUndefined(given)
     expect(result).toBeTruthy()
   })
 })

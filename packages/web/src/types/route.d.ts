@@ -11,6 +11,8 @@ declare namespace AuthRoute {
 
   type RouteKey = PageRoute.RouteKey
 
+  type LastDegreeRouteKey = PageRoute.LastDegreeRouteKey;
+
   type AllRouteKey = RouteKey | RootRoute | NotFoundRouteKey
 
   /** 路由路径 */
@@ -25,8 +27,8 @@ declare namespace AuthRoute {
   */
   type RouteComponentType = 'basic' | 'blank' | 'multi' | 'self'
 
-    /** 路由描述 */
-    interface RouteMate<K extends AuthRoute.RoutePath> {
+  /** 路由描述 */
+  interface RouteMate<K extends AuthRoute.RoutePath> {
     /** 路由标题（可用来做 document.title 或者菜单名称 */
     title: string;
     /** 路由的动态路径（应用在需要动态路径的页面，需要将 path 添加进泛型参数） */
@@ -120,4 +122,39 @@ declare namespace AuthRouteUtils {
       ? AuthRoute.NotFoundRoutePath
       :KeyToPath<K>
   : never
+
+  /** 根据路由key获取路由路径 */
+  type GetRoutePath<K extends AuthRoute.AllRouteKey = AuthRoute.AllRouteKey> = K extends AuthRoute.AllRouteKey
+    ? K extends AuthRoute.RootRouteKey
+      ? AuthRoute.RootRoutePath
+      : K extends AuthRoute.NotFoundRouteKey
+      ? AuthRoute.NotFoundRoutePath
+      : KeyToPath<K>
+    : never;
+
+  /** 获取一级路由(有子路由的一级路由和没有子路由的路由) */
+  type GetFirstDegreeRouteKey<K extends AuthRoute.RouteKey = AuthRoute.RouteKey> =
+    K extends `${infer _Left}${RouteKeySplitMark}${infer _Right}` ? never : K;
+
+  /** 获取有子路由的一级路由 */
+  type GetFirstDegreeRouteKeyWithChildren<K extends AuthRoute.RouteKey = AuthRoute.RouteKey> =
+    K extends `${infer Left}${RouteKeySplitMark}${infer _Right}` ? Left : never;
+
+  /** 单级路由的key (单级路由需要添加一个父级路由用于应用布局组件) */
+  type SingleRouteKey = Exclude<
+    GetFirstDegreeRouteKey,
+    GetFirstDegreeRouteKeyWithChildren | AuthRoute.RootRouteKey | AuthRoute.NotFoundRouteKey
+  >;
+
+  /** 单独路由父级路由key */
+  type SingleRouteParentKey = `${SingleRouteKey}-parent`;
+
+  /** 单独路由父级路由path */
+  type SingleRouteParentPath = KeyToPath<SingleRouteParentKey>;
+
+  /** 获取路由动态路径 */
+  type GetDynamicPath<P extends AuthRoute.RoutePath> =
+    | `${P}/:${string}`
+    | `${P}/:${string}(${string})`
+    | `${P}/:${string}(${string})?`;
 }

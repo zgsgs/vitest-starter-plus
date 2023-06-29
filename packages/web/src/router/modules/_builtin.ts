@@ -1,3 +1,6 @@
+import { getLoginModuleRegExp } from '../utils'
+import { t } from '@/locales'
+
 /** 根路由: / */
 export const ROOT_ROUTE: AuthRoute.Route = {
   name: import.meta.env.VITE_ROUTE_ROOT_NAME,
@@ -11,37 +14,37 @@ export const ROOT_ROUTE: AuthRoute.Route = {
 /** 固定的路由 */
 export const constantRoutes: AuthRoute.Route[] = [
   ROOT_ROUTE,
-  // {
-  //   name: 'login',
-  //   path: '/login',
-  //   component: 'self',
-  //   props: (route) => {
-  //     const moduleType = (route.params.module as UnionKey.LoginModule) || 'pwd-login'
-  //     return {
-  //       module: moduleType,
-  //     }
-  //   },
-  //   meta: {
-  //     title: '登录',
-  //     dynamicPath: `/login/:module(${getLoginModuleRegExp()})?`,
-  //     singleLayout: 'blank',
-  //   },
-  // },
-  // {
-  //   name: 'constant-page',
-  //   path: '/constant-page',
-  //   component: 'self',
-  //   meta: {
-  //     title: '固定页面',
-  //     singleLayout: 'blank',
-  //   },
-  // },
+  {
+    name: 'login',
+    path: '/login',
+    component: 'self',
+    props: (route) => {
+      const moduleType = (route.params.module as UnionKey.LoginModule) || 'pwd-login'
+      return {
+        module: moduleType,
+      }
+    },
+    meta: {
+      title: t('message.routes.login.login'),
+      dynamicPath: `/login/:module(${getLoginModuleRegExp()})?`,
+      singleLayout: 'blank',
+    },
+  },
+  {
+    name: 'constant-page',
+    path: '/constant-page',
+    component: 'self',
+    meta: {
+      title: t('message.routes.constantPage.constantPage'),
+      singleLayout: 'blank',
+    },
+  },
   {
     name: '403',
     path: '/403',
     component: 'self',
     meta: {
-      title: '无权限',
+      title: t('message.routes.403.403'),
       singleLayout: 'blank',
     },
   },
@@ -50,7 +53,7 @@ export const constantRoutes: AuthRoute.Route[] = [
     path: '/404',
     component: 'self',
     meta: {
-      title: '未找到',
+      title: t('message.routes.404.404'),
       singleLayout: 'blank',
     },
   },
@@ -59,7 +62,7 @@ export const constantRoutes: AuthRoute.Route[] = [
     path: '/500',
     component: 'self',
     meta: {
-      title: '服务器错误',
+      title: t('message.routes.500.500'),
       singleLayout: 'blank',
     },
   },
@@ -69,7 +72,7 @@ export const constantRoutes: AuthRoute.Route[] = [
     path: '/:pathMatch(.*)*',
     component: 'blank',
     meta: {
-      title: '未找到',
+      title: t('message.routes.404.404'),
       singleLayout: 'blank',
     },
   },

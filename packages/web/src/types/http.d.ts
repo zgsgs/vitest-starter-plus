@@ -1,25 +1,11 @@
-declare namespace HTTP{
-  type HttpStatusMessage = {
-    200: 'Success'
-    400: 'Invalid param'
-    401: 'Unauthorized'
-    403: 'Forbidden'
-    404: 'Not found'
-    500: 'Internal server error'
-    503: 'Service busy'
-  }
+declare namespace Http {
+  type HttpStatusCode = 200 | 400 | 401 | 403 | 404 | 500 | 503
+  type HttpStatusMessage = Record<HttpStatusCode, string>
 
-  type HttpStatusCode = keyof HttpStatusMessage
+  type CustomStatusCode = 0 | 1001 | 4001
+  type CustomStatusMessage = Record<CustomStatusCode, string>
 
-  type CustomStatusMessage ={
-    0: 'ok'
-    1001: 'Some custom error msg'
-    4001: 'Parameter verification failed'
-  }
+  type ResponseMessage = HttpStatusMessage | CustomStatusMessage
 
-  type CustomStatusCode = keyof CustomStatusMessage
-
-  type ResponseMessage = HttpStatusMessage & CustomStatusMessage
-
-  type ResponseCode = HttpStatusCode & CustomStatusCode
+  type ResponseCode = HttpStatusCode | CustomStatusCode
 }

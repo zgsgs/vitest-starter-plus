@@ -1,4 +1,4 @@
-declare namespace PageRoute{
+declare namespace PageRoute {
 
   /**
    * the root route key
@@ -21,6 +21,8 @@ declare namespace PageRoute{
     | '404'
     | '500'
     | 'not-found'
+		| 'login'
+		| 'constant-page'
     | 'about'
 
     /**
@@ -33,6 +35,8 @@ declare namespace PageRoute{
     | '404'
     | '500'
     | 'not-found'
+		| 'login'
+		| 'constant-page'
     | 'about'
   >;
 }

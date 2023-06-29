@@ -6,8 +6,9 @@ export function useSetup(setup: () => void) {
     setup,
   }
   const wrapper = mount(Component)
+
   return {
     wrapper,
-    router: wrapper.router,
+    router: vi.fn(),
   }
 }
