@@ -21,5 +21,4 @@ declare namespace TypeUtils {
   type DataTypeStringKey = keyof DataType
 
   type DataTypeString<T extends DataTypeStringKey = DataTypeStringKey> = `[object ${Capitalize<T>}]`;
-
 }
