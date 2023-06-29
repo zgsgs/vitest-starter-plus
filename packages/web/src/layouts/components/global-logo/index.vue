@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { GlobalLogoProps } from '.'
 import { useGlobalLogo } from '.'
 
 withDefaults(defineProps<GlobalLogoProps>(), {
