@@ -21,6 +21,8 @@
   "i18n-ally.keystyle": "nested", // 翻译路径格式,
   "i18n-ally.sourceLanguage": "zh-cn",
   "cSpell.words": [
+    "auths",
+    "brotli",
     "handsontable",
     "preinstall",
     "soybeanjs"
