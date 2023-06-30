@@ -1,4 +1,3 @@
-import { getLoginModuleRegExp } from '../utils'
 import { t } from '@/locales'
 
 /** 根路由: / */
@@ -14,31 +13,31 @@ export const ROOT_ROUTE: AuthRoute.Route = {
 /** 固定的路由 */
 export const constantRoutes: AuthRoute.Route[] = [
   ROOT_ROUTE,
-  {
-    name: 'login',
-    path: '/login',
-    component: 'self',
-    props: (route) => {
-      const moduleType = (route.params.module as UnionKey.LoginModule) || 'pwd-login'
-      return {
-        module: moduleType,
-      }
-    },
-    meta: {
-      title: t('message.routes.login.login'),
-      dynamicPath: `/login/:module(${getLoginModuleRegExp()})?`,
-      singleLayout: 'blank',
-    },
-  },
-  {
-    name: 'constant-page',
-    path: '/constant-page',
-    component: 'self',
-    meta: {
-      title: t('message.routes.constantPage.constantPage'),
-      singleLayout: 'blank',
-    },
-  },
+  // {
+  //   name: 'login',
+  //   path: '/login',
+  //   component: 'self',
+  //   props: (route) => {
+  //     const moduleType = (route.params.module as UnionKey.LoginModule) || 'pwd-login'
+  //     return {
+  //       module: moduleType,
+  //     }
+  //   },
+  //   meta: {
+  //     title: t('message.routes.login.login'),
+  //     dynamicPath: `/login/:module(${getLoginModuleRegExp()})?`,
+  //     singleLayout: 'blank',
+  //   },
+  // },
+  // {
+  //   name: 'constant-page',
+  //   path: '/constant-page',
+  //   component: 'self',
+  //   meta: {
+  //     title: t('message.routes.constantPage.constantPage'),
+  //     singleLayout: 'blank',
+  //   },
+  // },
   {
     name: '403',
     path: '/403',

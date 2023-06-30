@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { GlobalContentProps } from '.'
+
 import { useAppStore, useRouteStore, useThemeStore } from '@/store'
 
 withDefaults(defineProps<GlobalContentProps>(), {
@@ -15,7 +16,7 @@ const routeStore = useRouteStore()
 
 <template>
   <router-view v-slot="{ Component, route }">
-    <transition
+    <!-- <transition
       :name="theme.pageAnimateMode"
       mode="out-in"
       :appear="true"
@@ -31,6 +32,16 @@ const routeStore = useRouteStore()
           class="flex-grow bg-#f6f9f8 transition ease-in-out duration-300 dark:bg-#101014"
         />
       </keep-alive>
-    </transition>
+    </transition> -->
+
+    <keep-alive>
+      <component
+        :is="Component"
+        :key="route.fullPath"
+        :class="{ 'p-16px': showPadding }"
+        class="flex-grow bg-#f6f9f8 transition ease-in-out duration-300 dark:bg-#101014"
+      />
+    </keep-alive>
   </router-view>
+  <div>Content</div>
 </template>

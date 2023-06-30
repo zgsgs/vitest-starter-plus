@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.6",
+    "@faker-js/faker": "^8.0.2",
     "@iconify/json": "^2.2.84",
     "@types/crypto-js": "^4.1.1",
     "@types/handsontable": "^0.35.0",
@@ -44,6 +45,7 @@
     "jsdom": "^22.1.0",
     "msw": "^1.2.2",
     "rollup-plugin-visualizer": "^5.9.2",
+    "socket.io-client": "^4.7.1",
     "typescript": "^5.1.5",
     "unplugin-auto-import": "^0.15.3",
     "unplugin-svg-component": "^0.6.0",

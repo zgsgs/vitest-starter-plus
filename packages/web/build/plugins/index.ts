@@ -23,7 +23,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): PluginOption[] {
   ]
   const { isOpenVisualizer } = useConfig(viteEnv)
 
-  if (isOpenVisualizer)
+  if (!isOpenVisualizer)
     plugins.push(visualizer as PluginOption)
   if (viteEnv.VITE_COMPRESS === 'Y')
     plugins.push(compress(viteEnv) as PluginOption)

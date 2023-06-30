@@ -1,6 +1,7 @@
 import type { RouteLocationNormalizedLoaded, Router } from 'vue-router'
 import { defineStore } from 'pinia'
-import { useThemeStore } from '../theme'
+
+// import { useThemeStore } from '../theme'
 import {
   clearTabRoutes,
   getIndexInTabRoutes,
