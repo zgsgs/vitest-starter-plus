@@ -7,7 +7,6 @@ import { setupI18n } from './locales'
 async function setupApp() {
   setupAssets()
   setupMock()
-  setupMock()
   const app = createApp(App)
   app.use(router)
   setupComponents(app)

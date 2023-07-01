@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { GlobalContentProps } from '.'
 
-import { useAppStore, useRouteStore, useThemeStore } from '@/store'
+// import { useAppStore, useRouteStore, useThemeStore } from '@/store'
 
 withDefaults(defineProps<GlobalContentProps>(), {
   showPadding: true,
@@ -9,9 +9,9 @@ withDefaults(defineProps<GlobalContentProps>(), {
 
 defineOptions({ name: 'GlobalContent' })
 
-const app = useAppStore()
-const theme = useThemeStore()
-const routeStore = useRouteStore()
+// const app = useAppStore()
+// const theme = useThemeStore()
+// const routeStore = useRouteStore()
 </script>
 
 <template>
