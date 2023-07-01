@@ -21,7 +21,7 @@ export const auths = [
 
 function createRandomUser() {
   return {
-    _id: faker.datatype.uuid(),
+    id: 1,
     avatar: faker.image.avatar(),
     birthday: faker.date.birthdate(),
     email: faker.internet.email(),

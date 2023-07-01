@@ -5,36 +5,38 @@ declare namespace AuthRoute {
   /** 捕获无效路由的路由路径 */
   type NotFoundRoutePath = '/:pathMatch(.*)*';
 
-  type RootRoute = PageRoute.RootRoute
+  type RootRouteKey = PageRoute.RootRouteKey;
 
-  type NotFoundRouteKey = PageRoute.NotFoundRouteKey
+  type NotFoundRouteKey = PageRoute.NotFoundRouteKey;
 
-  type RouteKey = PageRoute.RouteKey
+  type RouteKey = PageRoute.RouteKey;
 
   type LastDegreeRouteKey = PageRoute.LastDegreeRouteKey;
 
-  type AllRouteKey = RouteKey | RootRoute | NotFoundRouteKey
+  type AllRouteKey = RouteKey | RootRouteKey | NotFoundRouteKey;
 
   /** 路由路径 */
-  type RoutePath<K extends AllRouteKey = AllRouteKey> = AuthRouteUtils.GetRoutePath<K>
+  type RoutePath<K extends AllRouteKey = AllRouteKey> = AuthRouteUtils.GetRoutePath<K>;
 
   /**
-  * 路由布局组件
-  * - basic 基础布局（具有公共部分的布局）
-  * - blank 空白布局
-  * - multi 多级路由布局（三级或三级以上，除一级和最后一级路由，其余采用该路由）
-  * - self 使用自身的布局（常作为最后一级路由的布局）
-  */
-  type RouteComponentType = 'basic' | 'blank' | 'multi' | 'self'
+   * 路由的组件
+   * - basic - 基础布局，具有公共部分的布局
+   * - blank - 空白布局
+   * - multi - 多级路由布局(三级路由或三级以上时，除第一级路由和最后一级路由，其余的采用该布局)
+   * - self - 作为子路由，使用自身的布局(作为最后一级路由，没有子路由)
+   */
+  type RouteComponentType = 'basic' | 'blank' | 'multi' | 'self';
 
   /** 路由描述 */
-  interface RouteMate<K extends AuthRoute.RoutePath> {
-    /** 路由标题（可用来做 document.title 或者菜单名称 */
+  interface RouteMeta<K extends AuthRoute.RoutePath> {
+    /** 路由标题(可用来作document.title或者菜单的名称) */
     title: string;
-    /** 路由的动态路径（应用在需要动态路径的页面，需要将 path 添加进泛型参数） */
-    dynamicPath?: AuthRouteUtils.GetRoutePath<K>;
+    /** 用来支持多国语言 如果i18nTitle和title同时存在优先使用i18nTitle */
+    i18nTitle?: string;
+    /** 路由的动态路径(需要动态路径的页面需要将path添加进范型参数) */
+    dynamicPath?: AuthRouteUtils.GetDynamicPath<K>;
     /** 作为单级路由的父级路由布局组件 */
-    singleLayout?: Extract<RouteComponentType, 'basic'|'blank'>;
+    singleLayout?: Extract<RouteComponentType, 'basic' | 'blank'>;
     /** 需要登录权限 */
     requiresAuth?: boolean;
     /**
@@ -91,9 +93,7 @@ declare namespace AuthRoute {
   type RouteModule = Record<string, { default: Route }>;
 }
 
-/** 路由工具 */
 declare namespace AuthRouteUtils {
-
   /** 路由key层级分割符 */
   type RouteKeySplitMark = '_';
 
@@ -103,25 +103,16 @@ declare namespace AuthRouteUtils {
   /** 空白字符串 */
   type BlankString = '';
 
-  /* key转换成path */
+  /** key转换成path */
   type KeyToPath<K extends string> = K extends `${infer _Left}${RouteKeySplitMark}${RouteKeySplitMark}${infer _Right}`
-  ? never
-  : K extends `${infer Left}${RouteKeySplitMark}${infer Right}`
+    ? never
+    : K extends `${infer Left}${RouteKeySplitMark}${infer Right}`
     ? Left extends BlankString
       ? never
       : Right extends BlankString
-        ? never
-        : KeyToPath<`${Left}${RoutePathSplitMark}${Right}`>
-    : `${RoutePathSplitMark}${K}`
-
-  /* 根据路由key获取路由路径 */
-  type GetRoutePath<K extends AuthRoute.AllRouteKey = AuthRoute.AllRouteKey> = K extends AuthRoute.AllRouteKey
-  ? K extends AuthRoute.RootRoute
-    ? AuthRoute.RootRoutePath
-    : K extends AuthRoute.NotFoundRouteKey
-      ? AuthRoute.NotFoundRoutePath
-      :KeyToPath<K>
-  : never
+      ? never
+      : KeyToPath<`${Left}${RoutePathSplitMark}${Right}`>
+    : `${RoutePathSplitMark}${K}`;
 
   /** 根据路由key获取路由路径 */
   type GetRoutePath<K extends AuthRoute.AllRouteKey = AuthRoute.AllRouteKey> = K extends AuthRoute.AllRouteKey

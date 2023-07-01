@@ -1,6 +1,6 @@
 import { t } from '@/locales'
 
-const about: AuthRoute.Route = {
+export const about: AuthRoute.Route = {
   name: 'about',
   path: '/about',
   component: 'self',
@@ -14,5 +14,3 @@ const about: AuthRoute.Route = {
     order: 10,
   },
 }
-
-export default about

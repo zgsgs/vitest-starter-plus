@@ -1,7 +1,7 @@
 import type { RouteComponent } from 'vue-router'
+import { views } from './views'
 import { isFunction } from '@/utils'
 import { BasicLayout, BlankLayout } from '@/layouts'
-import { views } from '@/views'
 
 type Lazy<T> = () => Promise<T>
 

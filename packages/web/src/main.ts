@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+import { router } from './router'
 import { setupAssets, setupComponents, setupMock } from './plugins'
 import { setupI18n } from './locales'
 
