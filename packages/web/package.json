@@ -48,6 +48,7 @@
     "socket.io-client": "^4.7.1",
     "typescript": "^5.1.5",
     "unplugin-auto-import": "^0.15.3",
+    "unplugin-icons": "^0.16.3",
     "unplugin-svg-component": "^0.6.0",
     "unplugin-vue-components": "^0.24.1",
     "vite-plugin-compression": "^0.5.1",

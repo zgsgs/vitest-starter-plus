@@ -11,7 +11,7 @@ defineOptions({ name: 'AppIcon' })
       <img src="../../../assets/svg-icon/vue.svg" class="logo vue" alt="Vue logo">
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <SvgIcon name="icon-local-ts" class="logo ts" alt="TS logo" />
+      <icon-local-ts class="logo ts" alt="TS logo" />
     </a>
     <a href="https://www.docker.com/" target="_blank">
       <div class="logo">

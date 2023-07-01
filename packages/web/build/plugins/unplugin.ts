@@ -1,7 +1,9 @@
 import type { PluginOption } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import SvgComponent from 'unplugin-svg-component/vite'
+import Icons from 'unplugin-icons/vite'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import IconsResolver from 'unplugin-icons/resolver'
 import { usePath } from '../hooks'
 
 export default function unplugin(viteEnv: ImportMetaEnv) {
@@ -9,30 +11,25 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
 
   const { typesPath, localIconPath } = usePath()
   /** 本地svg图标集合名称 */
-  const preserveColorReg = new RegExp(`${VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')}`)
+  const collectionName = VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')
 
   return [
-    SvgComponent({
-      iconDir: localIconPath,
-      dts: true,
-      dtsDir: typesPath,
-      svgSpriteDomId: 'my-svg-id',
-      prefix: VITE_ICON_PREFFIX,
-      componentName: 'SvgIcon',
-      preserveColor: preserveColorReg,
-      componentStyle: '',
-      optimizeOptions: undefined,
-      scanStrategy: 'component',
-      symbolIdFormatter: (svgName: string, prefix: string): string => {
-        const nameArr = svgName.split('/')
-        if (prefix)
-          nameArr.unshift(prefix)
-        return nameArr.join('-').replace(/\.svg$/, '')
+    Icons({
+      compiler: 'vue3',
+      customCollections: {
+        [collectionName]: FileSystemIconLoader(localIconPath, svg =>
+          svg.replace(/^<svg\s/, '<svg width="1em" height="1em" '),
+        ),
       },
+      scale: 1,
+      defaultClass: 'inline-block',
     }),
     Components({
       dts: `${typesPath}/components.d.ts`,
       types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
+      resolvers: [
+        IconsResolver({ customCollections: [collectionName], componentPrefix: VITE_ICON_PREFFIX }),
+      ],
     }),
     AutoImport({
       dts: `${typesPath}/auto-imports.d.ts`,
