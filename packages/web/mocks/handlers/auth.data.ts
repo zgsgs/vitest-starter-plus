@@ -1,5 +1,3 @@
-import { faker } from '@faker-js/faker'
-
 export const auths = [
   {
     id: 1,
@@ -18,17 +16,3 @@ export const auths = [
     role: ['super'],
   },
 ]
-
-function createRandomUser() {
-  return {
-    id: 1,
-    avatar: faker.image.avatar(),
-    birthday: faker.date.birthdate(),
-    email: faker.internet.email(),
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-    sex: faker.person.sexType(),
-    subscriptionTier: faker.helpers.arrayElement(['free', 'basic', 'business']),
-  }
-}
-export const user = createRandomUser()
