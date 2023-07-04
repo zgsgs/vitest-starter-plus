@@ -1,4 +1,4 @@
-import { getLoginModuleRegExp } from '../utils'
+import { getLoginModuleRegExp } from '@/router/utils'
 import { t } from '@/locales'
 
 /** 根路由: / */

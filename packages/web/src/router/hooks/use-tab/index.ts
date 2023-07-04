@@ -31,10 +31,10 @@ export function useTab() {
 
   }
   /**
-     * 初始化首页页签路由
-     * @param routeHomeName - 路由首页的name
-     * @param router - 路由实例
-     */
+   * 初始化首页页签路由
+   * @param routeHomeName - 路由首页的name
+   * @param router - 路由实例
+   */
   function initHomeTab(routeHomeName: string, router: Router) {
     const routes = router.getRoutes()
     const findHome = routes.find(item => item.name === routeHomeName)
