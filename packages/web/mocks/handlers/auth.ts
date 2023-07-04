@@ -12,8 +12,7 @@ interface LoginResponse {
 }
 
 export function authHandler(hostRoot: string) {
-  const login = rest.post<LoginBody, LoginResponse>(
-    `${hostRoot}/auth/login`,
+  const login = rest.post<LoginBody, LoginResponse>(`${hostRoot}/auth/login`,
     async (req, res, ctx) => {
       const { username } = await req.json()
       const data = auths.find(auth => auth.name === username)

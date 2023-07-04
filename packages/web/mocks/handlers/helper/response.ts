@@ -1,4 +1,4 @@
-interface retType {
+export interface retType {
   code?: Http.CustomStatusCode
   data?: unknown | null
   msg?: string
