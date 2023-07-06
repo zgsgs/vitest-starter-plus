@@ -1,1 +1,1 @@
-export * from './system-logo.vue'
+export * from './system-logo'
