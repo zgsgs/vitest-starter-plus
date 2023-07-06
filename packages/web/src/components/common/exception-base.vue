@@ -27,9 +27,9 @@ const isServiceError = computed(() => {
       <icon-local-service-error v-if="isServiceError" />
     </div>
     <router-link :to="{ name: routeHomePath }">
-      <button type="primary">
+      <n-button type="primary">
         回到首页
-      </button>
+      </n-button>
     </router-link>
   </div>
 </template>

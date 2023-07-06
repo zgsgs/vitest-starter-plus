@@ -11,7 +11,8 @@
     "test.ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --fix --ext .js,.jsx,.mjs,.json,.ts,.tsx,.vue",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "type.check": "vue-tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@handsontable/vue3": "^12.4.0",
@@ -19,6 +20,7 @@
     "lodash-es": "^4.17.21",
     "naive-ui": "^2.34.4",
     "pinia": "^2.1.4",
+    "qs": "^6.11.2",
     "vue": "^3.3.4",
     "vue-i18n": "9.2.2",
     "vue-router": "^4.2.2"
@@ -31,6 +33,7 @@
     "@types/crypto-js": "^4.1.1",
     "@types/handsontable": "^0.35.0",
     "@types/node": "^18.16.18",
+    "@types/qs": "^6.9.7",
     "@unocss/preset-icons": "^0.51.13",
     "@unocss/preset-uno": "^0.51.13",
     "@unocss/reset": "^0.51.13",

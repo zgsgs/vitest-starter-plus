@@ -15,7 +15,8 @@
     "build.web": "pnpm -F @blog/web build",
     "build.server": "pnpm -F @blog/server build",
     "build.admin": "pnpm -F @blog/admin build",
-    "clean.install": "pnpm clean && rm -rf ./{packages}/*/node_modules node_modules && pnpm i"
+    "clean.install": "pnpm clean && rm -rf ./{packages}/*/node_modules node_modules && pnpm i",
+    "type.check.web": "pnpm -F @blog/web type.check"
   },
   "keywords": [],
   "author": "",
