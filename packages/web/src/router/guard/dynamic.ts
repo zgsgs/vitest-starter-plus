@@ -1,7 +1,7 @@
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
-import { useRoute } from '../hooks'
 import { routeName } from '@/router'
 import { localStg } from '@/utils'
+import { useRoute } from '@/hooks'
 
 /**
  * 动态路由

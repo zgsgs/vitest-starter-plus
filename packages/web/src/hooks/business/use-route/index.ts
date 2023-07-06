@@ -1,6 +1,5 @@
 import { toRefs } from 'vue'
 import { getConstantRouteNames } from './helpers'
-import { useAuth, useTab } from '@/router/hooks'
 import {
   filterAuthRoutesByUserPermission,
   getCacheRoutes, sortRoutes,
@@ -14,6 +13,7 @@ import {
 import { ROOT_ROUTE, constantRoutes, router, staticRoutes } from '@/router'
 import { localStg } from '@/utils'
 import { fetchUserRoutes } from '@/service'
+import { useAuth, useTab } from '@/hooks'
 
 interface RouteState {
   /**

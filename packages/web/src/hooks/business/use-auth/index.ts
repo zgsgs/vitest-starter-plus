@@ -1,7 +1,6 @@
 import { useRoute } from '../use-route'
-import { useRouterPush } from '../use-router-push'
-import { useTab } from '../use-tab'
 import { clearAuthStorage, getToken, getUserInfo } from './helpers'
+import { useRouterPush, useTab } from '@/hooks'
 import { router } from '@/router'
 
 interface AuthState {
