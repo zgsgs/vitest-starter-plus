@@ -9,9 +9,9 @@ export default defineComponent({
       toHome()
     }
     return () => (
-      <div onClick={login}>
+      <button onClick={login}>
         Login
-      </div>
+      </button>
     )
   },
 })

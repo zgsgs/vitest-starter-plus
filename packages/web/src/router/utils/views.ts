@@ -9,7 +9,7 @@ export const views: Record<
   '500': () => import('@/views/_builtin/500'),
   'not-found': () => import('@/views/_builtin/not-found'),
   'constant-page': () => import('@/views/_builtin/constant-page'),
-  'login': () => import('@/views/_builtin/login/index.vue'),
+  'login': () => import('@/views/_builtin/login'),
   'about': () => import('@/views/about/index.vue'),
   'auth-demo_permission': () => import('@/views/about/index.vue'),
   'auth-demo_super': () => import('@/views/about/index.vue'),
