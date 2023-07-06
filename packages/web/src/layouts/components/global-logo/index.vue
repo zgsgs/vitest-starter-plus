@@ -8,7 +8,7 @@ withDefaults(defineProps<GlobalLogoProps>(), {
 
 defineOptions({ name: 'GlobalLogo' })
 
-const { routeHomePath, showTitle, toggleLocal } = useGlobalLogo()
+const { routeHomePath, toggleLocal } = useGlobalLogo()
 </script>
 
 <template>

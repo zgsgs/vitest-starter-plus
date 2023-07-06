@@ -1,6 +1,6 @@
 import UAParser from 'ua-parser-js'
+import { useAuth } from '../business'
 import { isArray, isString } from '@/utils'
-import { useLogin } from '@/hooks'
 
 interface AppInfo {
   /** 项目名称 */
@@ -31,7 +31,7 @@ export function useDeviceInfo() {
 
 /** 权限判断 */
 export function usePermission() {
-  const { userInfo } = useLogin()
+  const { userInfo } = useAuth()
 
   function hasPermission(permission: Auth.RoleType | Auth.RoleType[]) {
     const { userRole } = userInfo.value
