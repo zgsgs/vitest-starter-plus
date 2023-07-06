@@ -69,6 +69,9 @@ importers:
       qs:
         specifier: ^6.11.2
         version: 6.11.2
+      ua-parser-js:
+        specifier: ^1.0.35
+        version: 1.0.35
       vue:
         specifier: ^3.3.4
         version: 3.3.4
@@ -103,6 +106,9 @@ importers:
       '@types/qs':
         specifier: ^6.9.7
         version: 6.9.7
+      '@types/ua-parser-js':
+        specifier: ^0.7.36
+        version: 0.7.36
       '@unocss/preset-icons':
         specifier: ^0.51.13
         version: 0.51.13
@@ -2281,6 +2287,10 @@ packages:
     resolution: {integrity: sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w==}
     dependencies:
       '@types/node': 18.16.18
+    dev: true
+
+  /@types/ua-parser-js@0.7.36:
+    resolution: {integrity: sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==}
     dev: true
 
   /@types/unist@2.0.6:
@@ -12112,6 +12122,10 @@ packages:
     resolution: {integrity: sha512-FOH+WN/DQjUvN6WgW+c4Ml3yi0PH+a/8q+kNIfRehv1wLhWONedw85iu+vQ39Wp49IzTJEsZ2lyLXpBF7mkF1g==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  /ua-parser-js@1.0.35:
+    resolution: {integrity: sha512-fKnGuqmTBnIE+/KXSzCn4db8RTigUzw1AN0DmdU6hJovUTbYJKyqj+8Mt1c4VfRDnOVJnENmfYkIPZ946UrSAA==}
+    dev: false
 
   /ufo@1.1.1:
     resolution: {integrity: sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==}
