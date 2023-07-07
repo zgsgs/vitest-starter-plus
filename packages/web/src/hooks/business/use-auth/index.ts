@@ -25,14 +25,13 @@ export function useAuth() {
   })
 
   /** 重置auth状态 */
-  function resetAuthStore() {
+  function resetAuth() {
     const { toLogin } = useRouterPush(false)
     const { resetTabStore } = useTab()
     const { resetRouteStore } = useRoute()
     const route = unref(router.currentRoute)
 
     clearAuthStorage()
-    // this.$reset()
 
     if (route.meta.requiresAuth)
       toLogin()
@@ -46,6 +45,6 @@ export function useAuth() {
   return {
     ...toRefs(state),
     isLogin,
-    resetAuthStore,
+    resetAuth,
   }
 }

@@ -8,3 +8,9 @@ export interface RequestParam {
   data?: any
   axiosConfig?: AxiosRequestConfig
 }
+export interface RequestResultHook<T = any> {
+  data: Ref<T | null>;
+  error: Ref<Service.RequestError | null>;
+  loading: Ref<boolean>;
+  network: Ref<boolean>;
+}
