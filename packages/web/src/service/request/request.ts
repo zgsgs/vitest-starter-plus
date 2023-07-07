@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig } from 'axios'
-import type { RequestParam } from './type.d'
+import { getRequestResponse } from '../utils'
+import type { RequestParam } from './type'
 import CustomAxiosInstance from './instance'
-import { getRequestResponse } from './utils'
 
 /**
  * 创建请求

@@ -7,7 +7,7 @@ import {
   NETWORK_ERROR_MSG,
   REQUEST_TIMEOUT_CODE,
   REQUEST_TIMEOUT_MSG,
-} from '../config'
+} from '../request/config'
 import { showErrorMsg } from './msg'
 import { exeStrategyActions } from '@/utils'
 

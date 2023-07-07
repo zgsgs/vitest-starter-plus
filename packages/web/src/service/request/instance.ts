@@ -7,10 +7,9 @@ import {
   handleResponseError,
   handleServiceResult,
   transformRequestData,
-} from './utils'
+} from '../utils'
 import { REFRESH_TOKEN_CODE, defaultBackendResult } from './config'
-
-// import { getToken } from '@/hooks'
+import { getToken } from '@/utils'
 
 /** 封装axios请求类 */
 export default class CustomAxiosInstance {
@@ -41,7 +40,7 @@ export default class CustomAxiosInstance {
           const contentType = handleConfig.headers['Content-Type'] as UnionKey.ContentType
           handleConfig.data = await transformRequestData(handleConfig.data, contentType)
           // 设置token
-          // handleConfig.headers.Authorization = getToken()
+          handleConfig.headers.Authorization = getToken()
         }
         return handleConfig
       },

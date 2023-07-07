@@ -1,5 +1,5 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
-import type { RequestMethod } from '../type'
+import type { RequestMethod } from '../request/type'
 
 /** 获取请求结果 统一响应格式 */
 export async function getRequestResponse<T>(params: {
