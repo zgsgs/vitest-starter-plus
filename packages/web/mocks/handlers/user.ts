@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { ret } from './helper'
+import { createResponse } from './helper'
 import { routes, users } from './user.data'
 
 interface GetUserInfoBody {
@@ -13,33 +13,44 @@ interface GetUserInfoResponse {
 }
 
 interface UserRoutesResponse {
-  home: AuthRoute.AllRouteKey
-  routes: AuthRoute.Route[]
+  home: AuthRoute.AllRouteKey | ''
+  routes: AuthRoute.Route[] | []
 }
 
 export function userHandler(hostRoot: string) {
-  const getUserInfo = rest.get<GetUserInfoBody, GetUserInfoResponse>(`${hostRoot}/user/info`,
+  const getUserInfo = rest.post<GetUserInfoBody, GetUserInfoResponse>(`${hostRoot}/user/info`,
     async (req, res, ctx) => {
       const { userId } = await req.json()
-      const data = users.find(user => user.id === userId)
+      const result = users.find(user => user.id === userId)
 
       return res(
-        ctx.json(ret({
-          data,
-        })),
+        ctx.json(
+          createResponse({
+            data: result,
+          }),
+        ),
       )
     })
 
   const getUserRoutes = rest.post(`${hostRoot}/user/routes`,
     async (req, res, ctx) => {
-      // const { userId } = await req.json()
-      const data: UserRoutesResponse = {
-        home: 'about',
-        routes,
-      }
-      return res(ctx.json(ret({
-        data,
-      })),
+      const { userId } = await req.json()
+      const result: UserRoutesResponse = userId === 1
+        ? {
+            home: 'about',
+            routes,
+          }
+        : {
+            home: '',
+            routes: [],
+          }
+
+      return res(
+        ctx.json(
+          createResponse({
+            data: result,
+          }),
+        ),
       )
     },
   )

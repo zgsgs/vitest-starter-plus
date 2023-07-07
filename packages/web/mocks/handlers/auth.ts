@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { ret } from './helper'
+import { createResponse } from './helper'
 import { auths } from './auth.data'
 
 interface LoginBody {
@@ -17,7 +17,7 @@ export function authHandler(hostRoot: string) {
       const { username } = await req.json()
       const data = auths.find(auth => auth.name === username)
       return res(
-        ctx.json(ret({
+        ctx.json(createResponse({
           data,
         })),
       )

@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 import { articles } from './articles.data'
-import { ret } from './helper'
+import { createResponse } from './helper'
 
 export function articleHandler(hostRoot: string) {
   const getArticles = rest.get(`${hostRoot}/api/articles/:id`, (req, res, ctx) => {
@@ -11,9 +11,11 @@ export function articleHandler(hostRoot: string) {
       return res(ctx.status(500))
 
     return res(
-      ctx.json(ret({
-        data,
-      })),
+      ctx.json(
+        createResponse({
+          data,
+        }),
+      ),
     )
   })
 
