@@ -2,4 +2,4 @@
 import { setupWorker } from 'msw'
 import { createHandler } from './handlers'
 
-export const worker = setupWorker(...createHandler())
+export const worker = setupWorker(...createHandler('mock'))

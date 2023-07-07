@@ -18,10 +18,9 @@ interface UserRoutesResponse {
 }
 
 export function userHandler(hostRoot: string) {
-  const getUserInfo = rest.post<GetUserInfoBody, GetUserInfoResponse>(`${hostRoot}/user/info`,
-    async (req, res, ctx) => {
-      const { userId } = await req.json()
-      const result = users.find(user => user.id === userId)
+  const postUserInfo = rest.post<GetUserInfoBody, GetUserInfoResponse>(`${hostRoot}/user/info`,
+    async (_req, res, ctx) => {
+      const result = users[0]
 
       return res(
         ctx.json(
@@ -31,6 +30,15 @@ export function userHandler(hostRoot: string) {
         ),
       )
     })
+  const getUserInfo = rest.get(`${hostRoot}/getUserInfo`, async (_req, res, ctx) => {
+    return res(
+      ctx.json(
+        createResponse({
+          data: users[0],
+        }),
+      ),
+    )
+  })
 
   const getUserRoutes = rest.post(`${hostRoot}/user/routes`,
     async (req, res, ctx) => {
@@ -57,6 +65,7 @@ export function userHandler(hostRoot: string) {
 
   return [
     getUserInfo,
+    postUserInfo,
     getUserRoutes,
   ]
 }

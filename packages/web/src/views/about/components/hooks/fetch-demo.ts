@@ -1,20 +1,25 @@
+import { fetchUserInfo } from '@/service'
+
+interface FetchDemoState {
+  data: Auth.UserInfo
+}
 export function useFetchDemo() {
-  const state = reactive({
-    data: '',
+  const state: FetchDemoState = reactive({
+    data: {
+      userId: '0',
+      userName: '',
+      userRole: 'user',
+    },
   })
 
-  async function fetchInfo(): Promise<void> {
-    state.data = await fetch('/user/info', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({ userId: 1 }),
-    }).then(res => res.json())
+  async function getUserInfo() {
+    const { data } = await fetchUserInfo()
+    if (data)
+      state.data = data
   }
 
   return {
     ...toRefs(state),
-    fetchInfo,
+    getUserInfo,
   }
 }
