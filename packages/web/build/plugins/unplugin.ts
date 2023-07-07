@@ -4,10 +4,11 @@ import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import IconsResolver from 'unplugin-icons/resolver'
-import { localIconPath, typesPath } from '../config'
+import { usePath } from '../config'
 
 export default function unplugin(viteEnv: ImportMetaEnv) {
   const { VITE_ICON_PREFFIX, VITE_ICON_LOCAL_PREFFIX } = viteEnv
+  const { localIconPath, typesPath } = usePath()
 
   /** 本地svg图标集合名称 */
   const collectionName = VITE_ICON_LOCAL_PREFFIX.replace(`${VITE_ICON_PREFFIX}-`, '')
