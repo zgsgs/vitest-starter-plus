@@ -4,16 +4,15 @@
  * - test: 后台测试环境
  * - prod: 后台生产环境
  */
-
 type ServiceEnvType = 'dev' | 'test' | 'prod';
 
 /** 后台服务的环境配置 */
-interface IServiceEnvConfig {
+interface ServiceEnvConfig {
   /** 请求地址 */
   url: string;
 }
 
-interface ServiceEnvConfigWithProxyPattern extends IServiceEnvConfig {
+interface ServiceEnvConfigWithProxyPattern extends ServiceEnvConfig {
   /**
    * 匹配路径的正则字符串
    * - 用于拦截地址转发代理(任意以 /开头 + 字符串, 单个/不起作用)
@@ -22,8 +21,6 @@ interface ServiceEnvConfigWithProxyPattern extends IServiceEnvConfig {
    */
   proxyPattern: '/proxy-pattern';
 }
-
-type ConfigEnable = 'Y' | 'N'
 
 interface ImportMetaEnv {
   /** 项目基本地址 */
@@ -53,17 +50,28 @@ interface ImportMetaEnv {
   /** 后端服务的环境类型 */
   readonly VITE_SERVICE_ENV?: ServiceEnvType;
   /** 开启请求代理 */
-  readonly VITE_HTTP_PROXY?: ConfigEnable;
+  readonly VITE_HTTP_PROXY?: 'Y' | 'N';
   /** 是否开启打包文件大小结果分析 */
-  readonly VITE_VISUALIZER?: ConfigEnable;
+  readonly VITE_VISUALIZER?: 'Y' | 'N';
   /** 是否开启打包压缩 */
-  readonly VITE_COMPRESS?: ConfigEnable;
+  readonly VITE_COMPRESS?: 'Y' | 'N';
   /** 压缩算法类型 */
   readonly VITE_COMPRESS_TYPE?: 'gzip' | 'brotliCompress' | 'deflate' | 'deflateRaw';
   /** 是否应用pwa */
-  readonly VITE_PWA?: ConfigEnable;
+  readonly VITE_PWA?: 'Y' | 'N';
+  /**
+   * 是否开启生产模式下的mock
+   * @description 生产模式下会拦截XHR，导致无法获取response，不使用mock请求时设置为N
+   */
+  readonly VITE_PROD_MOCK?: 'Y' | 'N';
   /** hash路由模式 */
-  readonly VITE_HASH_ROUTE?: ConfigEnable;
+  readonly VITE_HASH_ROUTE?: 'Y' | 'N';
+  /** 是否应用自动生成路由的插件 */
+  readonly VITE_SOYBEAN_ROUTE_PLUGIN?: 'Y' | 'N';
   /** 是否是部署的vercel */
-  readonly VITE_VERCEL?: ConfigEnable;
+  readonly VITE_VERCEL?: 'Y' | 'N';
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

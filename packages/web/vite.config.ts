@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite'
-import { setupVitePlugins, useEnv, usePath, useProxy } from './build'
+import { defineConfig, loadEnv } from 'vite'
+import { createViteProxy, getServiceEnvConfig, rootPath, setupFilesPath, setupVitePlugins, srcPath, useEnv } from './build'
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => {
-  const { rootPath, srcPath, setupFilesPath } = usePath()
-  const { viteEnv } = useEnv(configEnv)
-  const { createViteProxy } = useProxy()
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as ImportMetaEnv
+
+  const { isOpenProxy } = useEnv(viteEnv)
+  const envConfig = getServiceEnvConfig(viteEnv)
 
   return {
     plugins: setupVitePlugins(viteEnv),
@@ -20,7 +21,7 @@ export default defineConfig((configEnv) => {
       host: '0.0.0.0',
       port: 3600,
       open: true,
-      proxy: createViteProxy(viteEnv),
+      proxy: createViteProxy(isOpenProxy, envConfig),
     },
     build: {
       reportCompressedSize: false,
