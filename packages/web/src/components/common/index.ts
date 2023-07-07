@@ -1,7 +1,2 @@
-import ExceptionBase from './exception-base.vue'
-
-export * from './dark-mode-container'
-
-export {
-  ExceptionBase,
-}
+export { default as DarkModeContainer } from './dark-mode-container.vue'
+export { default as ExceptionBase } from './exception-base.vue'

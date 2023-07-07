@@ -1,1 +1,1 @@
-export * from './system-logo'
+export { default as SystemLogo } from './system-logo.vue'
