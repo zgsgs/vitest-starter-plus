@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-const props = defineProps<Props>()
-
-defineOptions({ name: 'SvgIcon' })
-
 /**
  * 图标组件
  * - 支持iconify和本地svg图标
@@ -16,6 +12,10 @@ interface Props {
   /** 本地svg的文件名 */
   localIcon?: string
 }
+
+const props = defineProps<Props>()
+
+defineOptions({ name: 'SvgIcon' })
 
 const attrs = useAttrs()
 

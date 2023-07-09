@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import type { ExceptionBaseProps } from './exception-base'
 import { routeName } from '@/router'
+
+type ExceptionType = '403' | '404' | '500'
+
+interface ExceptionBaseProps {
+  /** 异常类型 403 404 500 */
+  type: ExceptionType
+}
 
 const props = defineProps<ExceptionBaseProps>()
 
