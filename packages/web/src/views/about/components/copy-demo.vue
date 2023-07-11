@@ -16,8 +16,7 @@ async function handleCopy() {
 }
 async function handleRead() {
   const res = await read()
-  // eslint-disable-next-line no-console
-  console.log(res)
+  window.console.log(res)
 }
 </script>
 
