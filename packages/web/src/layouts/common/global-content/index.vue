@@ -43,5 +43,4 @@ defineOptions({ name: 'GlobalContent' })
       />
     </keep-alive>
   </router-view>
-  <div>Content</div>
 </template>
