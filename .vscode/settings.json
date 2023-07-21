@@ -26,10 +26,12 @@
     "auths",
     "birthdate",
     "brotli",
+    "colord",
     "composables",
     "handsontable",
     "preinstall",
     "soybeanjs",
+    "Uncapitalize",
     "wechat"
   ],
 }

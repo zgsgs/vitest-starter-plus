@@ -35,10 +35,10 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
       dts: `${typesPath}/auto-imports.d.ts`,
       imports: [
         'vue',
-        // 'vue-router',
+        'vue-router',
         'vue-i18n',
-        // '@vueuse/head',
-        // '@vueuse/core',
+        '@vueuse/head',
+        '@vueuse/core',
         // 'pinia',
         {
           'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
